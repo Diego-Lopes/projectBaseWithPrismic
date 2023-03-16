@@ -1,6 +1,8 @@
 import * as Prismic from "@prismicio/client";
 
-export const client = Prismic.createClient("ideathon", {
-  accessToken:
-    "MC5aQktRZGhBQUFCMEFpdGZV.77-977-9REXvv71K77-977-977-9Pe-_ve-_vUHvv71W77-977-9Au-_vUXvv71ode-_vTIHMu-_ve-_vTNtPQ",
-});
+export function createClient(options?: Prismic.ClientConfig | undefined) {
+  return Prismic.createClient(process.env.API_ENDPOINT as string, {
+    ...options,
+    accessToken: process.env.ACCESS_TOKEN as string,
+  });
+}
